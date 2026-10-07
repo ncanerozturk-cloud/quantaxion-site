@@ -24,15 +24,17 @@ Domains**, which prints the DNS records to create at the registrar.
 ## Keeping it in step with the app
 
 `index.html` is a copy of `src/api/static/landing.html` from the main
-repository, with the `/login` links repointed at the static access page. When
-that file changes, re-copy it:
+repository. The link target needs no change — the app routes `/login` to its
+form and Vercel's `cleanUrls` resolves `/login` to `login.html` here — so only
+the button wording differs. When the source file changes, re-copy it:
 
 ```bash
 ./sync.sh ../QuantAxion
 ```
 
-The script does the repointing, so the two copies cannot drift in the one way
-that would matter — a live button going somewhere that does not exist here.
+The script relabels the buttons and asserts the result, so the two copies
+cannot drift in the one way a visitor would notice: a button promising a login
+this site cannot provide.
 
 ## What this is not
 

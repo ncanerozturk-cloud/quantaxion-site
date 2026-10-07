@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
-# Re-copy the landing page from the main repository and repoint its login links.
+# Re-copy the landing page from the main repository and adapt it for this site.
 #
 #   ./sync.sh ../QuantAxion
 #
 # The two copies exist because the application serves the page at / behind its
-# access gate, and this site serves it with nothing behind it. The only
-# difference that matters is where the login button goes: in the app it is a
-# real route, here it must be the static access notice, or a visitor clicks
-# through to a 404.
+# access gate, and this site serves it with nothing behind it.
+#
+# The link target needs no rewriting: the app routes /login to its form, and
+# Vercel's cleanUrls resolves /login to login.html here, so one href is correct
+# in both places. Only the wording differs — there is no session to create on
+# this site, and a button saying "Log in" would promise one.
 
 set -euo pipefail
 
@@ -23,26 +25,24 @@ target="$(cd "$(dirname "$0")" && pwd)/index.html"
 
 cp "$source_file" "$target"
 
-# Repoint and relabel. The app says "Log in" because a session is waiting to be
-# created; here there is nothing to log in to, and saying so is better than a
-# button that implies otherwise.
 python3 - "$target" <<'PY'
+import re
 import sys
 from pathlib import Path
 
 page = Path(sys.argv[1])
 html = page.read_text()
-html = html.replace('href="/login"', 'href="/login.html"')
-for pattern in (
-    '<a class="btn primary" href="/login.html">Log in</a>',
-    '<a class="btn lg" href="/login.html">Log in</a>',
-    '<a class="btn primary lg" href="/login.html">Log in</a>',
-    '<a href="/login.html">Log in</a>',
-):
-    html = html.replace(pattern, pattern.replace("Log in", "Request access"))
+
+# Relabel only the anchors that point at the access route, so an unrelated
+# "Log in" elsewhere in the copy would not be caught by accident.
+html, changed = re.subn(
+    r'(<a\b[^>]*href="/login"[^>]*>)Log in(</a>)', r'\1Request access\2', html
+)
 page.write_text(html)
 
-remaining = html.count('href="/login"')
-assert remaining == 0, f"{remaining} app-only login links survived the rewrite"
-print(f"Synced. {html.count('href=\"/login.html\"')} links point at the access page.")
+links = html.count('href="/login"')
+assert links, "No /login links found — did the landing page change its markup?"
+assert 'href="/login.html"' not in html, "An extension-ful link survived; cleanUrls would redirect it"
+assert ">Log in<" not in html, "A 'Log in' label survived the rewrite"
+print(f"Synced. {changed} of {links} access links relabelled.")
 PY
