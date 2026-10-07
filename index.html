@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>QuantAxion — sourced investment research for AI and frontier technology</title>
-<meta name="description" content="Research that reasons across years of filings, news, policy disclosures and option pricing to produce a cited, conditional view on US-listed AI and frontier-technology companies.">
+<title>QuantAxion — investment theses built from evidence, for AI and frontier technology</title>
+<meta name="description" content="QuantAxion connects filings, news, policy disclosures, insider activity, macro and live option pricing into one reasoned investment thesis — fundamental and technical — for US-listed AI and frontier-technology companies.">
 <style>
   /* Light-first, neutral surfaces, one accent — the same language as the app.
      Colour carries meaning: green and red appear on real directional readings
@@ -103,6 +103,21 @@
   .vs ul{margin:0;padding-left:20px;color:var(--muted);font-size:15px;line-height:1.75}
   .vs .r ul{color:var(--text)}
 
+
+  /* ----------------------------------------------------------- layer stack */
+  .layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:36px}
+  .layer{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:24px;position:relative;overflow:hidden}
+  section.band.alt .layer{background:var(--bg)}
+  .layer::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
+  .layer h3{font-size:16.5px;margin:0 0 8px}
+  .layer p{margin:0 0 14px;color:var(--muted);font-size:14.5px;line-height:1.6}
+  .layer ul{margin:0;padding-left:18px;color:var(--faint);font-size:13.5px;line-height:1.75}
+  .merge{margin-top:28px;background:var(--accent-2);border-radius:var(--radius);
+    padding:24px 26px;border:1px solid color-mix(in srgb,var(--accent) 22%,transparent)}
+  .merge h3{margin:0 0 8px;font-size:17.5px}
+  .merge p{margin:0;color:var(--muted);font-size:15.5px;line-height:1.7}
+
   /* ------------------------------------------------------------------ demo */
   .demo{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
     background:var(--surface);box-shadow:var(--shadow);margin-top:36px}
@@ -173,6 +188,7 @@
     <div class="spacer"></div>
     <nav>
       <a href="#problem">Why</a>
+      <a href="#layers">What it reads</a>
       <a href="#demo">See it</a>
       <a href="#how">How it works</a>
       <a href="#limits">Limits</a>
@@ -185,15 +201,15 @@
 <div class="hero">
   <div class="wrap">
     <div class="eyebrow"><i></i> Private beta — US-listed AI &amp; frontier technology</div>
-    <h1 class="title">Research that shows <em>its sources</em> and admits <em>what it missed</em>.</h1>
-    <p class="lede">QuantAxion reads filings, news, congressional and insider disclosures, Federal
-      Reserve language, macro releases and option pricing for one company — then writes a cited,
-      conditional view: what is happening, why it should move the price, at what level it becomes
-      interesting, and what would prove it wrong.</p>
+    <h1 class="title">Thousands of sources. <em>One defensible thesis.</em></h1>
+    <p class="lede">QuantAxion connects filings, news, policy and insider disclosures, Federal
+      Reserve language, macro releases and live option pricing into a single reasoned investment
+      thesis — fundamental and technical, in one view. Not a screen. Not a score. An argument,
+      with every claim traceable to the source that produced it.</p>
     <div class="cta">
-      <a class="btn primary lg" href="#demo">See a real report</a>
+      <a class="btn primary lg" href="#demo">See a real thesis</a>
       <a class="btn lg" href="/login.html">Request access</a>
-      <span class="note">Analysis only. No brokerage execution, ever.</span>
+      <span class="note">Research and decision support. No brokerage execution.</span>
     </div>
 
     <div class="stats">
@@ -209,46 +225,100 @@
 <!-- --------------------------------------------------------------- problem -->
 <section class="band" id="problem">
   <div class="wrap">
-    <div class="kicker">The problem</div>
-    <h2 class="sec">A score tells you nothing you can argue with.</h2>
-    <p class="sub">Most tools rank stocks by a composite number. You cannot check a number, you cannot
-      disagree with it, and it cannot tell you that it was working from a headline instead of the
-      filing. The useful question is never “what is the score” — it is “what is happening, how do you
-      know, and what would change your mind.”</p>
+    <div class="kicker">The difference</div>
+    <h2 class="sec">Screeners rank. QuantAxion reasons.</h2>
+    <p class="sub">A filter finds companies matching a number. It cannot tell you that a memory
+      supplier being sold out through 2027 is the reason a networking designer's margins hold, or
+      that an insider sale lands in the same window as a policy change. Those are connections across
+      sources, made over time — and connecting them is the work. That is the engine we built.</p>
 
     <div class="vs">
       <div class="l">
-        <h4>What a screener gives you</h4>
+        <h4>A screener returns</h4>
         <ul>
-          <li>A composite score of 73 — derived how?</li>
-          <li>“Sentiment: positive” — because of what story?</li>
-          <li>“Congress is buying” — who, how much, how stale?</li>
-          <li>Confident prose whether or not the data exists</li>
-          <li>Silence about what it could not read</li>
+          <li>A composite score, with no way to interrogate it</li>
+          <li>“Sentiment: positive” — detached from the story behind it</li>
+          <li>“Congress is buying” — without who, how much, or how stale</li>
+          <li>Fundamentals and technicals in separate, unlinked tabs</li>
+          <li>The same confident tone regardless of what it actually read</li>
         </ul>
       </div>
       <div class="r">
-        <h4>What QuantAxion gives you</h4>
+        <h4>QuantAxion returns</h4>
         <ul>
-          <li>A conditional verdict with the price it applies at</li>
-          <li>The causal mechanism, in plain language</li>
-          <li>Every claim traced to a dated filing, article or print</li>
-          <li>The strongest argument <em>against</em> the view</li>
-          <li>An explicit list of what it could not read</li>
+          <li>A conditional call with the price levels it applies at</li>
+          <li>The causal mechanism, stated in plain language</li>
+          <li>Fundamentals, positioning and price structure in one argument</li>
+          <li>Every claim bound to a dated filing, article or print</li>
+          <li>The strongest case against its own view, and how far coverage reaches</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ---------------------------------------------------------------- layers -->
+<section class="band alt" id="layers">
+  <div class="wrap">
+    <div class="kicker">One thesis, three layers</div>
+    <h2 class="sec">Most tools pick one. A decision needs all three.</h2>
+    <p class="sub">Fundamentals tell you what a business earns. Technicals tell you what price the
+      market is asking. Neither tells you what is about to change — that comes from everything
+      being said and disclosed around the company. QuantAxion reads all three and resolves them
+      against each other in a single argument.</p>
+
+    <div class="layers">
+      <div class="layer">
+        <h3>Fundamental</h3>
+        <p>Read from the filing itself, not a vendor summary.</p>
+        <ul>
+          <li>Revenue, margins, cash and debt</li>
+          <li>Capex, R&amp;D and capital allocation</li>
+          <li>Dilution and stock compensation</li>
+          <li>Inline XBRL facts, cited individually</li>
+        </ul>
+      </div>
+      <div class="layer">
+        <h3>Technical &amp; options</h3>
+        <p>Where price has actually traded, and what the option market charges.</p>
+        <ul>
+          <li>Tested support and resistance, with touch counts</li>
+          <li>Implied against realised volatility</li>
+          <li>Term structure, skew and expected move</li>
+          <li>Positioning and off-exchange volume</li>
+        </ul>
+      </div>
+      <div class="layer">
+        <h3>Evidence &amp; disclosure</h3>
+        <p>The layer that moves a price before the numbers change.</p>
+        <ul>
+          <li>Company, industry and policy news</li>
+          <li>Congressional and insider transactions</li>
+          <li>Government contracts and lobbying</li>
+          <li>Federal Reserve language and macro releases</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="merge">
+      <h3>The connection is the product</h3>
+      <p>A supplier sold out through 2027 is a margin fact about its customer. A policy change and
+        an insider sale in the same week are one observation, not two. These links sit across
+        thousands of sources and years of filings, and finding them is what separates a thesis
+        from a filtered list.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ------------------------------------------------------------------ demo -->
-<section class="band alt" id="demo">
+<section class="band" id="demo">
   <div class="wrap">
     <div class="kicker">See it</div>
-    <h2 class="sec">A real saved report, not a mock-up.</h2>
-    <p class="sub">This is an unedited report the system produced for Credo Technology (CRDO) on
-      28 September 2026. Nothing below was written for this page. Step through the tabs to see how
-      it reaches a conclusion — including the part most tools leave out.</p>
+    <h2 class="sec">A real thesis, produced by the system.</h2>
+    <p class="sub">An unedited report for Credo Technology (CRDO), generated 28 September 2026.
+      Nothing below was written for this page. Step through it the way an analyst would: the call,
+      the argument, the evidence behind it, the strongest case against it, and how far the coverage
+      actually reaches.</p>
 
     <div class="demo">
       <div class="demo-bar">
@@ -256,11 +326,11 @@
         <span>quantaxion — research report · CRDO · generated 2026-09-28</span>
       </div>
       <div class="demo-steps" id="steps">
-        <button data-s="0" class="on">1 · The verdict</button>
+        <button data-s="0" class="on">1 · The call</button>
         <button data-s="1">2 · The thesis</button>
         <button data-s="2">3 · The evidence</button>
         <button data-s="3">4 · The counter-case</button>
-        <button data-s="4">5 · What it could not read</button>
+        <button data-s="4">5 · Coverage &amp; confidence</button>
       </div>
       <div class="demo-body" id="demoBody"></div>
     </div>
@@ -270,12 +340,13 @@
 <!-- ------------------------------------------------------------------- how -->
 <section class="band" id="how">
   <div class="wrap">
-    <div class="kicker">How it works</div>
-    <h2 class="sec">Read each source once. Reuse what it said everywhere.</h2>
-    <p class="sub">The expensive part of research is reading. QuantAxion stores every source as an
-      immutable, dated version and extracts observations from it once, so the same filing informs a
-      semiconductor theme, a supplier’s outlook and a specific company view without being re-read —
-      and a new event updates the earlier conclusion rather than replacing it.</p>
+    <div class="kicker">The engine</div>
+    <h2 class="sec">Read each source once. Connect it everywhere.</h2>
+    <p class="sub">The expensive part of research is reading, and the valuable part is what a source
+      implies about companies it never names. Each source is stored as an immutable, dated version
+      and read once into observations that are reused across themes, suppliers and customers — so a
+      memory-pricing disclosure reaches a networking designer's margin outlook without being re-read,
+      and a new event updates the earlier conclusion instead of replacing it.</p>
 
     <div class="pipe">
       <div class="step"><div class="n">01</div><h4>Collect</h4>
@@ -308,25 +379,28 @@
 <!-- ---------------------------------------------------------------- limits -->
 <section class="band alt" id="limits">
   <div class="wrap">
-    <div class="kicker">Limits</div>
-    <h2 class="sec">What it will not do.</h2>
-    <p class="sub">A research tool that hides its gaps is worse than one that has none, because you
-      cannot tell which claims to trust. These are stated on every report.</p>
+    <div class="kicker">Built to be audited</div>
+    <h2 class="sec">Every claim carries its receipt.</h2>
+    <p class="sub">Conviction is worth nothing if you cannot check it. These properties are enforced
+      on every report, which is what makes the rest of it usable by a professional.</p>
 
     <div class="cols">
-      <div class="card"><div class="ic">◎</div><h3>It does not predict prices</h3>
-        <p>Scenarios are conditional and labelled as the system’s own reasoning — never presented as
-          analyst consensus or a forecast. A level is where an argument becomes actionable, not a target.</p></div>
-      <div class="card"><div class="ic">⚑</div><h3>It separates missing from zero</h3>
-        <p>“No filings found”, “collection failed”, “stale” and “measured zero” are four different
-          states and are never collapsed into one reassuring sentence.</p></div>
-      <div class="card"><div class="ic">⌘</div><h3>It does not invent precision</h3>
-        <p>Congressional amounts are disclosed as ranges and stay ranges. An estimated earnings date
-          is labelled an estimate. Full-text coverage is reported honestly where articles were
-          truncated to summaries.</p></div>
-      <div class="card"><div class="ic">▲</div><h3>It does not execute</h3>
-        <p>No brokerage connection, no orders, no portfolio management. It is decision support, and a
-          bullish business case is explicitly not the same decision as buying a specific option.</p></div>
+      <div class="card"><div class="ic">◎</div><h3>Conditional, never predictive</h3>
+        <p>Scenarios are stated as conditions with the levels that trigger them, and labelled as the
+          system's own reasoning rather than analyst consensus. A level is where an argument becomes
+          actionable — not a price target dressed up as one.</p></div>
+      <div class="card"><div class="ic">⚑</div><h3>Four states, never flattened</h3>
+        <p>Missing, stale, unverified and measured zero stay distinct through the whole pipeline.
+          Most tools collapse them into one reassuring sentence, which is precisely where a thesis
+          quietly stops being supported.</p></div>
+      <div class="card"><div class="ic">⌘</div><h3>Precision is never invented</h3>
+        <p>Congressional amounts are disclosed as ranges and stay ranges. A projected earnings date
+          is labelled a projection. Where an article was only available as a summary, the report
+          says so rather than citing it as a full read.</p></div>
+      <div class="card"><div class="ic">▲</div><h3>Research, not execution</h3>
+        <p>No brokerage connection and no orders. The separation is also analytical: a constructive
+          business case and a specific option trade are two different decisions, and the reports
+          keep them apart.</p></div>
     </div>
   </div>
 </section>
@@ -334,9 +408,9 @@
 <!-- ------------------------------------------------------------------- cta -->
 <section class="band">
   <div class="wrap" style="text-align:center">
-    <h2 class="sec" style="margin:0 auto 14px;max-width:20ch">Access is currently invite-only.</h2>
-    <p class="sub" style="margin:0 auto 28px">The research application sits behind this page while the
-      evidence pipeline is being validated against a reviewed company cohort.</p>
+    <h2 class="sec" style="margin:0 auto 14px;max-width:22ch">Currently in private beta.</h2>
+    <p class="sub" style="margin:0 auto 28px">Access is granted while the evidence pipeline is
+      validated against a reviewed company cohort. Tell us what you would use it for.</p>
     <a class="btn primary lg" href="/login.html">Request access</a>
   </div>
 </section>
@@ -454,10 +528,11 @@ const PANELS = [
 
   // 5 — the gaps
   () => `${head}
-    <p class="prose" style="font-size:15px;color:var(--muted)">Most tools stop at the conclusion.
-      This is the section that makes the rest checkable.</p>
+    <p class="prose" style="font-size:15px;color:var(--muted)">Every report states how far its
+      evidence actually reaches. This is what lets a professional weight the conclusion rather
+      than take it on faith.</p>
     <ul class="evlist">${REPORT.gaps.map(g => `<li>${esc(g)}</li>`).join("")}</ul>
-    <div class="gapnote"><b>Why the confidence is medium, in the report's own words.</b>
+    <div class="gapnote"><b>Why this report is rated medium confidence, in its own words.</b>
       ${esc(REPORT.confidenceReason)}</div>
     ${stamp}`
 ];
